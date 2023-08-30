@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+  
+  
+    body{
+        margin:0 auto;
+        width: 500px;
+    }
+    
+    h1,h3{
+       text-align: center;
+    }
+
+    header{
+       background-color: aquamarine;        
+     } 
+   
+     #playerNameLoad{
+
+        margin: 1em;
+        width: 15em;
+     }    
+     
+     .imgJugada {
+
+      width: 10em;
+      height: 10em;
+     }
+
+     .imgJugada:hover {
+        width: 9em;
+        height: 9em;      
+     }
+     button{
+        padding: 0;
+        margin: 0;
+     }
+
+     #panelJuego{
+        background-color: aquamarine;
+        padding-left: 2rem;
+     }
+
+     #panelJugada{
+        background-color: rgb(12, 246, 230);
+        width: 20em;
+        height: 20em;
+        position: relative;
+     }
+
+     #btnOpcionJugada{
+         margin-top: 2em;
+     }
+
+     p{
+        text-align: center;
+     }
+
+     .panelJugador{
+        
+        width: 8em;
+        height: 8em;     
+        vertical-align: top;
+        display: inline-block;
+        
+     }
+
+     #panelJugadorUser{        
+        margin: 0.3em;
+     }
+
+     #panelJugadorPc{
+
+        margin-left: 2em; 
+         }
+
+    .imgJugadaPlayer{
+
+        width: 2em;
+        height: 2em;
+        padding-left: 3em  ;      
+    }   
+    #resultados{
+
+        float: left;
+    }
+
+    #anuncioGanador{
+
+        margin-top: 1.5em;
+        
+    }
+
+    #resetGame{
+        background-color: aqua;
+        margin-left: 3em;
+        border-radius: 1em;
+        border-color: aliceblue;
+    }
+    
+
+    </style>
+
+
+</head>
+<body>
+    
+    <header>
+        <h1>Juego: Piedra Papel o Tijera</h1>
+    </header>
+    
+    <main >
+    
+
+    <div id="panelJuego">
+        
+        <input id="playerNameLoad" type="text" placeholder="Escribe el nombre del jugador">
+
+        <h2 id="playerNameTittle" >Jugador: </h2>   
+        
+        <div id="panelJugada">
+
+            <h3>Gana a las 5 partidas</h3>
+
+            <h5 id="nroPartidas-h5">Nro Partida:   </h5>            
+
+            <div id="panelJugadorUser" class="panelJugador" >
+                
+                <p>Alejandro</p>
+                <br>
+                <img id="imgPlayedUser" class="imgJugadaPlayer" src="" alt="jugada" >
+            </div>
+
+            <div id="panelJugadorPc" class="panelJugador" >
+                
+                <p>PC</p>
+                <br>
+                <img id="imgPlayedPC" class="imgJugadaPlayer" src="" alt="jugada" >
+            </div>
+
+            <div id="resultados">
+
+                <table>
+                    <th>
+                        <td>Victorias</td>
+                    </th>
+                    <tr>
+                        <td>Alejandro :  </td>
+                        <td id="userGameWon"> 0 </td>
+                    </tr>
+                    <tr>
+                        <td>PC : </td>
+                        <td id="pcGameWon">0</td>
+                    </tr>
+                    <tr>
+                        <td>Empate : </td>
+                        <td id="tieGameWon" >0</td>
+                    </tr>
+
+                </table>
+           
+            </div>
+
+            <div id="anuncioGanador">
+
+                <p id="anunciandoGanador"></p>
+                <button id="resetGame" >Volver a Jugar</button>                
+            </div>
+
+        </div>  
+
+        <div id="btnOpcionJugada">
+            <button id="btnPiedra" class="btnJugada"  ><img  name="piedra" class="imgJugada" src="/practico2/piedra.gif"  alt=""></button>
+            <button id="btnPapel"class="btnJugada"  ><img class="imgJugada" name="papel" src="/practico2/papel.gif" alt=""></button>        
+            <button id="btnTijera"class="btnJugada"  ><img class="imgJugada" name="tijera" src="/practico2/tijera.gif" alt=""></button>
+        </div>
+    </div> 
+
+    </main>
+
+    <script src="./piedraPapelTijeras.js"></script>
+
+    <script>       
+       
+        let playerNameLoad= document.getElementById("playerNameLoad");
+        let btnJugada= document.querySelectorAll(".btnJugada"); 
+        let imgPlayedUser= document.getElementById("imgPlayedUser");
+        let imgPlayedPC= document.getElementById("imgPlayedPC");
+        let resetGame=document.getElementById("resetGame");
+        
+        let countPartidas= 0,countUserGameWon=0,countPcGameWon=0;
+        
+        imgPlayedUser.style.display='none';          
+        imgPlayedPC.style.display='none';
+        resetGame.style.display='none';
+
+        resetGame.addEventListener("click", volverAJugar)
+
+        playerNameLoad.addEventListener("focusout", validateName );
+       
+        btnJugada.forEach(boton => {
+
+            boton.addEventListener("click", resultadoJugada);
+        })
+
+
+        function validateName(){
+
+            let name=playerNameLoad.value
+            console.log(name);
+            if(name==""){
+
+                console.log("El nombre está vació");
+            }else{
+                console.log("El nombre NO está vació");
+                    document.getElementById("playerNameTittle").innerHTML= "Jugador: " + name
+            }
+
+        }
+
+        function resultadoJugada(e){
+
+            let nameJugada= e.target; 
+            let userGameWon= document.getElementById("userGameWon");
+            let pcGameWon= document.getElementById("pcGameWon");         
+            let tieGameWon= document.getElementById("tieGameWon");
+            let nroPartidash5=  document.getElementById("nroPartidas-h5");
+            
+            countPartidas++;
+
+            imgPlayedUser.src= nameJugada.src
+            imgPlayedUser.style.display= "inline"; 
+
+            let jugadaComputadora= obtenerJugadaComputadora();
+            let resultadoJuego= determinarGanador(jugadaComputadora,nameJugada.name);
+
+            if(resultadoJuego=="pc"){
+                countPcGameWon++
+                pcGameWon.innerHTML= countPcGameWon;
+
+            }else if(resultadoJuego=="user"){
+                countUserGameWon++;
+                userGameWon.innerHTML= countUserGameWon;
+            }else{
+
+                tieGameWon.innerHTML= Number(tieGameWon.innerHTML) + 1;
+            }
+
+
+            if(countUserGameWon== 3 ) {
+                  
+                let anuncioGanador= document.getElementById("anuncioGanador");
+
+                anunciandoGanador.innerHTML= " GANÓ " + playerNameLoad.value;
+                resetGame.style.display='inline';
+                
+            }else if(countPcGameWon== 3 ) {
+                let anuncioGanador= document.getElementById("anuncioGanador");
+
+                anunciandoGanador.innerHTML=" GANÓ LA PC";
+                resetGame.style.display='inline';
+            }
+
+            imgPlayedPC.src= "/practico2/" + jugadaComputadora + ".gif";
+            imgPlayedPC.style.display="inline";
+
+            nroPartidash5.innerHTML= "Nro Partida: " + countPartidas;
+        }
+
+        function volverAJugar(){
+
+            location.reload()
+
+        }
+
+    </script>
+</body>
+</html>
