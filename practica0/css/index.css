@@ -1,0 +1,57 @@
+body{
+  /*color de fondo de toda la página, con excepción a cualquier selector hijo que tienen un color ya definido
+   en la hoja de estilo*/
+   background-color: rgb(246, 7, 27);
+   /*fuente de letra de toda la página*/
+   font-family: Arial, Helvetica, sans-serif ;
+   /*Color de fuente de toda la página, con excepción a cualquier selector hijo que tienen un color ya definido
+   en la hoja de estilo*/
+   color: rgb(33, 46, 70);
+   /*centra la fuente de letra de toda la página*/
+   text-align: center;
+}
+
+article{
+     /*define un borde pasándole tres parámetros: el grosor, el trazado y su color*/
+     border: 3px solid rgb(83, 76, 76);
+     /*redondea las esquinas de la caja*/
+     border-radius: 2em ;
+     /*Realiza una separación en los cuatro sentidos de coordenadas de los demás elementos o cajas*/
+     margin: 3em;
+     /*el color del texto sólo es aplicado a los tag de article. */
+     color: antiquewhite;
+}
+
+ strong, h2{
+    /*Define el color para los títulos de cada artículos y para los textos que representan
+    los items en la lista*/
+    color:rgb(42, 39, 39);
+}
+
+.container-videos{
+    
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(177, 0, 0);
+    margin: 3em 2em 2em 2em ;
+    border-radius: 2em;  
+}
+
+video{
+    flex-grow: 1;
+    margin: 1em;
+    width: 20em;
+    height: 20em;
+    border-radius: 1em;
+    border-bottom: 1px solid white;
+
+}
+
+li{
+    text-align: left;
+}
+
+.tittle-li__strong{
+    padding: 2em;
+
+}

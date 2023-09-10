@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+
+
+    <title>Resumen del Alumno</title>
+</head>
+<body>
+
+    <header>
+        <h1>Información del Alumno</h1>
+    </header>
+
+    <main>
+
+        <!--En el siguiente artículo se describe los datos básicos del alumno-->
+        <article>
+            <h2>Datos básicos</h2>
+
+            <ul>
+                <li>
+                    <strong>Nombre:</strong> Acosta Rios Alejandro
+                </li>
+                <li>
+                    <strong>Edad:</strong> 34 años
+                </li>
+                <li>
+                    <strong>Nacionalidad:</strong> Argentina
+                </li>
+            </ul>
+            
+        </article>
+
+       <!--En el siguiente artículo se describe una lista de cosas de interés-->
+        <article>
+            <h2>Intereses</h2>
+            <!--Se utiliza una lista no ordenada para indicar los items de interés-->
+            <ul>
+                <li>
+                    <strong>Lenguaje de Programación</strong> 
+                     <!--Se crea una sublista o subitem del item que describe lenguaje de programación-->
+                      <ul>
+                        <li> <img src="imagenes/java.png" alt="logo de java" width='30em' height='30em'> Java</li>
+                        <li><img src="imagenes/javascript.png" alt="logo de java" width='30em' height='30em'>Javascript</li>
+                      </ul>
+                </li>
+                <li>
+                    <strong>Deportes</strong> 
+                        <ul>
+                            <li><img src="imagenes/futbol.png" alt="logo de java" width='30em' height='30em'>  Futbol</li>                            
+                        </ul>
+                </li>
+                <li>
+                    <strong>Lectura</strong> 
+                        <ul>
+                            <li><img src="imagenes/biblia.png" alt="logo de java" width='30em' height='30em'>  La biblia</li>                            
+                        </ul>
+                </li>
+            </ul>
+            
+        </article>
+
+        <!--En el siguiente artículo se describe una lista de videos según deferentes items temáticos-->
+        <article>
+            <h2>Videos sobre intereses</h2>                        
+                        
+            <strong class="tittle-li__strong">Deportes</strong>
+            <!--Contenedor que agrupa los videos de deportes-->
+            <div class="container-videos">             
+
+                <video  controls>
+                    <source src="videos/golmessi.mp4"> 
+                    Video de deportes no encontrado
+                </video>
+
+                <video  controls>
+                    <source src="videos/golmessi.mp4"> 
+                    Video de deportes no encontrado
+                </video>            
+             </div>           
+             
+             <strong class="tittle-li__strong">Alabanza</strong> 
+             <!--Contenedor que agrupa los videos de alabanzas-->         
+             <div class="container-videos">                    
+                       
+                <video   controls>
+                    <source src="videos/alabanza.mp4"> 
+                    Video de alabanza no encontrado    
+                </video>           
+             </div>
+        </article>
+
+        <!--En el siguiente artículo se describe la experiencia del alumno-->
+        <article >
+            <h2>Experiencias</h2>
+            <p>Estoy participando en un proyecto de la Universidad Nacional del Oeste donde
+               está creando un sistema web para los hospitales. <br>
+               Trabajo en el area de desarrollo de software. Principalmente desarrollo
+               la parte del backend.
+            </p>
+
+        </article>
+    </main>    
+</body>
+</html>
