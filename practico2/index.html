@@ -132,7 +132,7 @@
 
             <div id="panelJugadorUser" class="panelJugador" >
                 
-                <p>Alejandro</p>
+                <p>Jugador</p>
                 <br>
                 <img id="imgPlayedUser" class="imgJugadaPlayer" src="" alt="jugada" >
             </div>
@@ -151,7 +151,7 @@
                         <td>Victorias</td>
                     </th>
                     <tr>
-                        <td>Alejandro :  </td>
+                        <td id="playerNameResultados">Jugador :  </td>
                         <td id="userGameWon"> 0 </td>
                     </tr>
                     <tr>
@@ -220,7 +220,8 @@
             }else{
                 console.log("El nombre NO está vació");
                     document.getElementById("playerNameTittle").innerHTML= "Jugador: " + name
-            }
+                    
+            }document.getElementById("playerNameResultados").innerHTML= name + ":";
 
         }
 
