@@ -1,0 +1,85 @@
+body{
+     
+    background-color: cadetblue;
+    text-align: center;
+    
+}
+
+#btnCalcular{
+    display: block;
+    margin: 0  auto;
+    border-radius: 2em;
+    margin-top: 2em;
+    border:2px solid rgb(71, 68, 68);
+    box-shadow: 0em 0.2em 1em 0.7em rgb(24, 24, 24) ;
+
+}
+
+#btnReset{
+    display: block;
+    margin: 0  auto;
+    border-radius: 2em;
+    margin-top: 2em;
+    border:2px solid rgb(71, 68, 68);
+    box-shadow: 0em 0.2em 1em 0.7em rgb(24, 24, 24) ;
+
+}
+
+button:hover{
+    box-shadow: 1em 0.2em 11em 0.3em rgb(24, 24, 24) ;   
+    font-size: 0.9em;
+}
+
+#container-calculator{
+    width: 30em;
+    margin: 0 auto;     
+    background-color: red;
+    border: 3px solid rgb(71, 68, 68);
+    border-radius: 2em;
+    background-image: url("../imagenes/calculadora.jpg");
+   
+}
+
+.input-operando, #select-operator{
+    margin-top: 2em;
+    width: 20em;
+    border-radius: 1em;
+    background-color: cadetblue;
+    height: 3em;
+    border: 1px solid rgb(243, 235, 235);
+    text-align: center;
+    color: rgb(232, 231, 235);
+    font-size: 1em;
+}
+
+#select-operator{
+    background-color: rgb(23, 56, 74);
+    margin: 0 auto;
+    font-size: 2em;
+    width: 2em;
+    height: 1em;
+    display: block;
+    margin-top: 1.5em;
+}
+
+#container-result{
+
+    background-color: cadetblue;
+    width: 10em;
+    height: 5.5em;
+    margin: 0 auto;
+    border-radius: 1em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border: 3px solid rgb(75, 66, 66);
+}
+
+#resultado{
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+#msjError{
+
+    color: rgb(200, 4, 4);
+}

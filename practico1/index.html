@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>calculadora</title>
+</head>
+<body>
+
+    <header>
+        <h1>Calculadora</h1>
+    </header>
+
+    <main>
+            
+        <p id="msjError">El resultado es muy grande o muy pequeño para mostrarse en pantalla! </p>
+        <div id="container-calculator">
+
+            <input id="operando1" class="input-operando" type="number" placeholder="ingrese un numero">
+
+           <select id="select-operator" name="" id="operator">
+                <option value="+"> +
+                </option>
+                <option value="-"> -
+                </option>
+                <option value="*"> *
+                </option>
+                <option value="/"> /
+                </option>
+           </select>
+
+           <input id="operando2" class="input-operando" type="number" placeholder="ingrese un numero">
+
+           <button id="btnCalcular">Calcular</button>
+           <button id="btnReset">Iniciar</button>
+
+           <div id="container-result">
+               <h3>Resultado</h3> 
+               <strong id="resultado"></strong>                    
+           </div>
+        </div>
+
+
+
+    </main>
+   
+    <script>
+//******Se inicializa las variables que representan los elementos del html******
+            
+            let btnCalcular= document.getElementById("btnCalcular");
+            let btnReset= document.getElementById("btnReset");
+            let operando1= document.getElementById("operando1");            
+            let operando2= document.getElementById("operando2"); 
+            let select_operator= document.getElementById("select-operator");     
+            let result= document.getElementById("resultado");
+            let msjError= document.getElementById("msjError");
+
+//******Se define los eventos de cada botón******
+            
+           
+            btnCalcular.addEventListener("click", calcularOperacion);            
+            btnReset.addEventListener("click", limpiarOperandos);
+
+//******Se inicializan las variables******
+
+            //El mensaje de error no se mostrará en pantalla por defecto
+            msjError.style.display="none";
+            
+//******Se definen las funciones de los eventos****
+            
+            //Se calcula la operación entre los operandos ingresados por el usuario
+            function calcularOperacion(){                
+
+                let resultado;                 
+                
+                //se realiza el cálculo según el operador seleccionado por el usuario : (+, -, /, *)
+                if(select_operator.value== "+"){
+                     
+                    resultado= Number(operando1.value) + Number(operando2.value)            
+
+                } else if(select_operator.value== "-"){ 
+
+                    resultado= Number(operando1.value) - Number(operando2.value)           
+                    
+                } else if(select_operator.value== "/"){
+
+                    if(Number(operando2.value)== "0"){
+                        window.alert("No se puede dividir por cero");
+                    } else{
+                        resultado= Number(operando1.value) / Number(operando2.value)                                       
+                    }                 
+                } else{
+                    resultado= Number(operando1.value) * Number(operando2.value);                                         
+                } 
+                
+                resultado=resultado.toFixed(2).toString();
+
+                //Se controla el número que resulta de la operación no sea ni muy grande ni muy pequeño 
+                if(resultado.length>12){
+                    //Se muestra en pantalla el mensaje de error
+                    msjError.style.display="inline";
+                    msjError.innerHTML="El resultado es muy grande o muy pequeño para mostrarse en pantalla!";
+                }else{                            
+                    result.innerHTML= resultado
+                    console.log("suma " + resultado   );
+                }
+
+            }
+            
+            //Se reinician o vacían todos los valores mostrados en pantalla  
+            function limpiarOperandos(){
+                operando2.value= "";  
+                operando1.value= "";    
+                result.innerHTML= ""; 
+                msjError.innerHTML="";
+            }
+            
+    </script>
+
+    
+</body>
+</html>
